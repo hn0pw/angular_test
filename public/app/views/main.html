@@ -1,0 +1,23 @@
+<!-- main.html -->
+<div class="main_content">
+
+    <div class="title">{{ 'MAIN_TITLE' | translate }}</div>
+
+    <div class="add_entry">
+        {{ 'MAIN_ADD_TODO_INPUT' | translate }}:
+        <input type="text" ng-model="vm.newTodoInput" ng-keypress="vm.inputKeypress($event)">
+        <button ng-click="vm.addEntry()">Add</button>
+    </div>
+
+    <div class="list">
+        <div class="row" ng-repeat="(key, value) in vm.todos">
+            <input type="checkbox" ng-model="vm.todos" ng-change="vm.removeEntry(key)">
+            {{ value}}
+        </div>
+        <div class="empty_list" ng-if="vm.todos.length === 0">
+            {{ 'MAIN_EMTPY_LIST' | translate }}
+        </div>
+    </div>
+
+</div>
+
